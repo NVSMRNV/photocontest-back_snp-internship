@@ -11,6 +11,8 @@ python-decouple = "*"
 django-imagekit = "*"
 django-service-objects = "*"
 django = "*"
+django-split-settings = "*"
+psycopg2 = "*"
 
 [dev-packages]
 
