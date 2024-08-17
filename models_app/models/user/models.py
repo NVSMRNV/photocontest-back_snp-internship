@@ -1,12 +1,14 @@
+from django.utils import timezone
 from django.db import models
-from django.contrib.auth.models import AbstractUser
+from django.contrib.auth.models import AbstractUser, UserManager
+from django.contrib.auth.validators import UnicodeUsernameValidator
 
 
 class User(AbstractUser):
     email = models.EmailField(unique=True)
     is_social_auth = models.BooleanField(default=False)
 
-    USERNAME_FIELD = ['email']
+    USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = ['username']
     
     class Meta:
