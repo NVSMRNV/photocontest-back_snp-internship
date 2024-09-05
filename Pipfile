@@ -14,6 +14,7 @@ django = "*"
 django-split-settings = "*"
 psycopg2 = "*"
 dj-database-url = "*"
+djoser = "*"
 
 [dev-packages]
 

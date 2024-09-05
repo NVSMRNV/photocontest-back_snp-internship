@@ -18,6 +18,11 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+    'djoser',
+    'rest_framework',
+    'rest_framework.authtoken',
+
     'models_app',
 ]
 
@@ -90,5 +95,13 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'models_app/media')
 
 
-# Auth
+#! Auth user model
 AUTH_USER_MODEL = 'models_app.User'
+
+
+#! Rest
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework.authentication.TokenAuthentication',
+    ),
+}
