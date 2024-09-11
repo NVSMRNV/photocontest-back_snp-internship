@@ -15,6 +15,7 @@ django-split-settings = "*"
 psycopg2 = "*"
 dj-database-url = "*"
 djoser = "*"
+social-auth-app-django = "*"
 
 [dev-packages]
 
