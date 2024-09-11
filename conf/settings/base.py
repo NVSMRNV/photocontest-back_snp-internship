@@ -24,6 +24,7 @@ INSTALLED_APPS = [
     'rest_framework.authtoken',
 
     'models_app',
+    'api',
 ]
 
 MIDDLEWARE = [
@@ -41,7 +42,7 @@ ROOT_URLCONF = 'conf.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': ['api/templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -83,7 +84,7 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 STATIC_URL = 'static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'models_app/static')
+STATIC_ROOT = os.path.join(BASE_DIR, 'api/static')
 
 
 # Default primary key field type
