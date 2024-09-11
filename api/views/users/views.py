@@ -1,33 +1,18 @@
-from rest_framework import generics
-from models_app.models.user.models import User
-from serializers.user.serializers import UserSerializer
+from django.urls import reverse_lazy
+from django.views.generic import CreateView
+from django.contrib.auth.views import LoginView, LogoutView
+from api.forms.forms import RegisterUserForm
 
 
-#! Used for create-only endpoints.
-#! Provides a post method handler.
-class CreateUserAPIView(generics.CreateAPIView):
-    serializer_class = UserSerializer
-    
-
-#! Used for read-only endpoints to represent a collection of model instances.
-#! Provides a get method handler.
-class ListUserAPIView(generics.ListAPIView):
-    serializer_class = UserSerializer
+class RegisterUserView(CreateView):
+    form_class = RegisterUserForm
+    template_name = 'users/register.html'
+    success_url = reverse_lazy('login')
 
 
-#! Used for read-only endpoints to represent a single model instance.
-#! Provides a get method handler.
-class RetrieveUserAPIView(generics.RetrieveAPIView):
-    serializer_class = UserSerializer
+class LoginUserView(LoginView):
+    pass
 
 
-#! Used for delete-only endpoints for a single model instance.
-#! Provides a delete method handler.
-class DestroyUserAPIView(generics.DestroyAPIView):
-    serializer_class = UserSerializer
-
-
-#! Used for update-only endpoints for a single model instance.
-#! Provides put and patch method handlers.
-class UpdateUserAPIView(generics.UpdateAPIView):
-    serializer_class = UserSerializer
+class LogoutUserView(LogoutView):
+    pass
