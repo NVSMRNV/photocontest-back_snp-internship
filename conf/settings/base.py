@@ -96,8 +96,10 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'models_app/media')
 
 
-#! Auth user model
+#! Auth
 AUTH_USER_MODEL = 'models_app.User'
+LOGIN_REDIRECT_URL = '/'
+LOGOUT_REDIRECT_URL = '/'
 
 
 #! Rest
