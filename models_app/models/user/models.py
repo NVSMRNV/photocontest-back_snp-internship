@@ -8,7 +8,7 @@ class User(AbstractUser, BaseModel):
     username = models.CharField('username', max_length=128, unique=True)
     bio = models.CharField(max_length=512, blank=True, default='')
     email = models.EmailField('email', blank=True)
-    avatar = models.ImageField(upload_to='users/', blank=True, null=True) #TODO Указать путь в upload_to
+    avatar = models.ImageField(upload_to='users/', blank=True, null=True) #TODO Указать путь в upload_to и добивать дефолт
     date_joined = None
 
     EMAIL_FIELD = 'email'

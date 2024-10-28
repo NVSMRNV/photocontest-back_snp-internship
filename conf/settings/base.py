@@ -23,6 +23,8 @@ INSTALLED_APPS = [
     'rest_framework',
     'rest_framework.authtoken',
 
+    'social_django',
+
     'models_app',
     'api',
 ]
@@ -50,6 +52,9 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'social_django.context_processors.backends',
+                'social_django.context_processors.login_redirect',
+
             ],
         },
     },
@@ -98,8 +103,21 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'models_app/media')
 
 #! Auth
 AUTH_USER_MODEL = 'models_app.User'
+
 LOGIN_REDIRECT_URL = '/'
+
 LOGOUT_REDIRECT_URL = '/'
+
+AUTHENTICATION_BACKENDS = (
+    'social_core.backends.open_id.OpenIdAuth',
+    'social_core.backends.google.GoogleOAuth2',
+    'social_core.backends.google.GoogleOAuth',
+    'social_core.backends.vk.VKOAuth2',
+    'django.contrib.auth.backends.ModelBackend',
+)
+
+SOCIAL_AUTH_VK_OAUTH2_KEY = config('VK_KEY', cast=str)
+SOCIAL_AUTH_VK_OAUTH2_SECRET = config('VK_SECRET', cast=str)
 
 
 #! Rest
@@ -108,3 +126,7 @@ REST_FRAMEWORK = {
         'rest_framework.authentication.TokenAuthentication',
     ),
 }
+
+
+#! For db
+SOCIAL_AUTH_POSTGRES_JSONFIELD = True
