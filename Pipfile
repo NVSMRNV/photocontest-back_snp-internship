@@ -16,6 +16,7 @@ psycopg2 = "*"
 dj-database-url = "*"
 djoser = "*"
 social-auth-app-django = "*"
+django-cors-headers = "*"
 
 [dev-packages]
 
