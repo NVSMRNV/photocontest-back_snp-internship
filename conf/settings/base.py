@@ -20,6 +20,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'corsheaders',
+    'drf_yasg',
 
     'rest_framework',
     'rest_framework.authtoken',
@@ -118,3 +119,8 @@ REST_FRAMEWORK = {
 
 # Разрешить все домены (для разработки)
 CORS_ALLOW_ALL_ORIGINS = True
+
+#! Swagger
+SWAGGER_SETTINGS = {
+    "DEFAULT_MODEL_RENDERING": "example"
+}
